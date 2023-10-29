@@ -1,7 +1,5 @@
 "use client";
 
-import { data } from "autoprefixer";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -9,7 +7,7 @@ import { BsFillMicFill } from "react-icons/bs";
 
 const HomeSearch = () => {
   const [input, setInput] = useState("");
-  const [randomLoading,setRandomLoading]= useState(false)
+  const [randomLoading, setRandomLoading] = useState(false);
   const router = useRouter();
 
   const handelSubmit = (e) => {
@@ -20,13 +18,15 @@ const HomeSearch = () => {
     router.push(`search/web?searchTerm=${input}`);
   };
   const randomSearch = async () => {
-    setRandomLoading(true)
+    setRandomLoading(true);
     const response = await fetch("https://random-word-api.herokuapp.com/word")
       .then((res) => res.json())
       .then((data) => data[0]);
-      if(!response){return}
-      router.push(`/search/web?searchTerm=${response}`)
-      setRandomLoading(false)
+    if (!response) {
+      return;
+    }
+    router.push(`/search/web?searchTerm=${response}`);
+    setRandomLoading(false);
   };
 
   return (
@@ -48,8 +48,20 @@ const HomeSearch = () => {
         <button onClick={handelSubmit} className="btn">
           Google Search
         </button>
-        <button disabled={randomLoading} onClick={randomSearch} className="btn flex items-center justify-center disabled:opacity-80">{randomLoading?(<img src="spinner.svg" alt='loading ...' className="h-6 text-center"/>):('I Am Feeling Lucky')}
-          
+        <button
+          disabled={randomLoading}
+          onClick={randomSearch}
+          className="btn flex items-center justify-center disabled:opacity-80"
+        >
+          {randomLoading ? (
+            <img
+              src="spinner.svg"
+              alt="loading ..."
+              className="h-6 text-center"
+            />
+          ) : (
+            "I Am Feeling Lucky"
+          )}
         </button>
       </div>
     </>
