@@ -1,7 +1,7 @@
 import WebSearchResults from "@/app/components/WebSearchResults";
 import Link from "next/link";
 import React from "react";
-import { resolve } from "styled-jsx/css";
+
 
 const WebSearchpage = async ({ searchParams }) => {
   await new Promise((resolve)=> setTimeout(resolve,10000))
