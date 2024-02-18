@@ -1,6 +1,5 @@
 import WebSearchResult from "@/components/WebSearchResult";
-import { error } from "console";
-import Link from "next/navigation";
+import Link from "next/link";
 
 import React from "react";
 

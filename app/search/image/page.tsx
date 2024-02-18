@@ -1,8 +1,8 @@
 import ImageSearchResults from "@/components/ImageSearchResults";
-import Link from "next/navigation";
+import Link from "next/link";
 import React from "react";
 
-const ImageSearchPage = async ({ searchParams }: any) => {
+const ImageSearchPage = async ({ searchParams='' }: any) => {
   const startIndex = searchParams.start || "1";
   const searchTerm = searchParams?.searchTerm || "";
 
