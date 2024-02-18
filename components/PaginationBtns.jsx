@@ -6,8 +6,8 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 const PaginationBtns = () => {
   const pathName = usePathname();
   const searchParams = useSearchParams();
-  const searchTerm = searchParams.get("searchTerm");
-  const startIndex: number = Number(searchParams.get("start")) || 1;
+  const searchTerm = searchParams?.get("searchTerm");
+  const startIndex = +searchParams.get("start") || 1;
 
   return (
     <div className="text-blue-700 flex px-10 pb-4 justify-between sm:justify-start sm:space-x-44 sm: sm:px-0">
