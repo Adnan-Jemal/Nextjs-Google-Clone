@@ -1,3 +1,4 @@
+import WebSearchResult from "@/components/WebSearchResult";
 import { error } from "console";
 import Link from "next/link";
 import React from "react";
@@ -12,6 +13,7 @@ const WebSearchPage = async ({
   );
   if (!res.ok) throw new Error("something went wrong");
   const data = await res.json();
+  
   const results = data.items;
   if (!results) {
     return (
@@ -28,9 +30,7 @@ const WebSearchPage = async ({
       </div>
     );
   }
-  return (
-    <div>{results && results.map((result) => <h1>{result.title}</h1>)}</div>
-  );
+  return <div>{results && <WebSearchResult results={data} />}</div>
 };
 
 export default WebSearchPage;
