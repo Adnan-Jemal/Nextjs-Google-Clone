@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import PaginationBtns from "./PaginationBtns";
 
 type resultTypes = {
   link: string;
@@ -11,7 +12,7 @@ type resultTypes = {
 
 const ImageSearchResults = ({ results }:any) => {
   return (
-    <div className="pb-24 mt-4 ">
+    <div className="sm:pb-24 pb-40 mt-4 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-3 space-x-4">
         {results?.map((result: resultTypes) => (
           <div className="mb-8" key={result.cacheId}>
@@ -36,7 +37,9 @@ const ImageSearchResults = ({ results }:any) => {
             </div>
           </div>
         ))}
+        
       </div>
+      <div className="ml-16"><PaginationBtns/></div>
     </div>
   );
 };

@@ -5,10 +5,11 @@ import React from "react";
 const ImageSearchPage = async ({
   searchParams,
 }: {
-  searchParams: { searchTerm: string };
+  searchParams: { searchTerm: string; start: string };
 }) => {
+  const startIndex = searchParams.start || "1";
   const res = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&cx=${process.env.NEXT_PUBLIC_GOOGLE_CONTEXT_KEY}&q=${searchParams.searchTerm}}&searchType=image`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}g&cx=${process.env.NEXT_PUBLIC_GOOGLE_CONTEXT_KEY}&q=${searchParams.searchTerm}}&searchType=image&start=${startIndex}`
   );
   if (!res.ok) throw new Error("something went wrong");
   const data = await res.json();
