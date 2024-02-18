@@ -17,7 +17,7 @@ const ImageSearchPage = async ({ searchParams }: any) => {
     return (
       <div className="flex flex-col justify-center items-center pt-10 text-center">
         <h1 className="text-3xl mb-4">
-          No results found for {searchParams.searchTerm}
+          No results found for {searchTerm}
         </h1>
         <p className="text-lg">
           Try searching the web for images for something else{" "}
