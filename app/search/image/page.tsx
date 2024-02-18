@@ -8,9 +8,10 @@ const ImageSearchPage = async ({
   searchParams: { searchTerm: string; start: string };
 }) => {
   const startIndex = searchParams.start || "1";
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  const searchTerm = searchParams?.searchTerm;
+
   const res = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${searchParams.searchTerm}}&searchType=image&start=${startIndex}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${searchTerm}}&searchType=image&start=${startIndex}`
   );
   if (!res.ok) throw new Error("something went wrong");
   const data = await res.json();

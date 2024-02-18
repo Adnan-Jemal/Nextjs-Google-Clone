@@ -10,7 +10,7 @@ const WebSearchPage = async ({
   searchParams: { searchTerm: string; start: string };
 }) => {
   const startIndex = searchParams.start || "1";
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  
   const res = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${searchParams.searchTerm}}&start=${startIndex}`
   );
