@@ -8,7 +8,7 @@ const SearchHeaderOptions = () => {
   const pathname = usePathname();
 
   const selectTab = (tab: "Images" | "All") => {
-    router.push(`/search/${tab === "Images" ? "image" : "web"}`);
+    router.push(`/search/${tab === "Images" ? "image" : "web"}?searchTerm=${searchTerm}`);
   };
   return (
     <div className="flex space-x-2 select-none border-b w-full justify-center lg:justify-start lg:pl-52 text-gray-700 text-sm">
