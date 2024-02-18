@@ -28,7 +28,7 @@ const WebSearchResult = ({ results }: propTypes | any) => {
         About {results.searchInformation?.formattedTotalResults} results{" "}
         {results.searchInformation?.formattedSearchTime} seconds
       </p>
-      {results.items?.map((result: resultTypes) => (
+      {results.items?.map((result: resultTypes|any) => (
         <div className="mb-8 max-w-xl" key={result.cacheId}>
           <div className="group flex flex-col">
             <Link href={result.link}>{result.formattedUrl}</Link>
@@ -39,7 +39,7 @@ const WebSearchResult = ({ results }: propTypes | any) => {
               {result.title}
             </Link>
           </div>
-          <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
+          <p className="text-gray-600">{Parser(result.htmlSnippet )}</p>
         </div>
       ))}
       <PaginationBtns/>
