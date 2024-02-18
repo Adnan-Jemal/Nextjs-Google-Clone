@@ -1,7 +1,7 @@
 import WebSearchResult from "@/components/WebSearchResult";
 import { error } from "console";
-import Link from "next/link";
-import { resolve } from "path";
+import Link from "next/navigation";
+
 import React from "react";
 
 const WebSearchPage = async ({
