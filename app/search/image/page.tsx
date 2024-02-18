@@ -2,13 +2,9 @@ import ImageSearchResults from "@/components/ImageSearchResults";
 import Link from "next/link";
 import React from "react";
 
-const ImageSearchPage = async ({
-  searchParams,
-}: {
-  searchParams: { searchTerm: string; start: string };
-}) => {
+const ImageSearchPage = async ({ searchParams }: any) => {
   const startIndex = searchParams.start || "1";
-  const searchTerm = searchParams?.searchTerm;
+  const searchTerm = searchParams?.searchTerm || "";
 
   const res = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${searchTerm}}&searchType=image&start=${startIndex}`
