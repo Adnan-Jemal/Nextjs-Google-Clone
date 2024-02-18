@@ -10,9 +10,9 @@ const ImageSearchPage = async ({ searchParams }: any) => {
     `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${searchTerm}}&searchType=image&start=${startIndex}`
   );
   if (!res.ok) throw new Error("something went wrong");
-  const data = await res.json();
+  const data = await res?.json();
 
-  const results = data.items;
+  const results = data?.items;
   if (!results) {
     return (
       <div className="flex flex-col justify-center items-center pt-10 text-center">
