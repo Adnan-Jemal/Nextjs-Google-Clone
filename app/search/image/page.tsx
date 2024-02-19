@@ -1,7 +1,7 @@
 import ImageSearchResults from "@/components/ImageSearchResults";
 import Link from "next/link";
 
-export default async function ImageSearchPage({ searchParams }: any) {
+export default async function ImageSearchPage({ searchParams={} }: any) {
   const startIndex = searchParams.start || "1";
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const response = await fetch(
